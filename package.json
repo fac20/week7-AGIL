@@ -1,0 +1,26 @@
+{
+  "name": "week7-agil",
+  "version": "1.0.0",
+  "description": "",
+  "main": "router.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac20/week7-AGIL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac20/week7-AGIL/issues"
+  },
+  "homepage": "https://github.com/fac20/week7-AGIL#readme",
+  "dependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
