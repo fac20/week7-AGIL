@@ -2,13 +2,14 @@
   "name": "week7-agil",
   "version": "1.0.0",
   "description": "",
-  "main": "router.js",
+  "main": "server.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon",
+    "test": "NODE_ENV=test tape 'tests/*' | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,16 @@
   },
   "homepage": "https://github.com/fac20/week7-AGIL#readme",
   "dependencies": {
-    "nodemon": "^2.0.4"
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "pg": "^8.3.2"
+  },
+  "devDependencies": {
+    "nock": "^13.0.4",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.0.1"
   }
 }
