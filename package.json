@@ -2,7 +2,7 @@
   "name": "week7-agil",
   "version": "1.0.0",
   "description": "",
-  "main": "router.js",
+  "main": "server.js",
   "directories": {
     "test": "tests"
   },
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/fac20/week7-AGIL#readme",
   "dependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "pg": "^8.3.2"
   }
 }
