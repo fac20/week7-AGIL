@@ -20,21 +20,17 @@ server.post("/signup", userHandlers.createUser, (req, res) => { //call the handl
 })
 
 server.post("/login", (req, res) => { //checks the user exists and logs them in 
-    userHandlers.logIn(req, res)
+    userHandlers.logIn(req, res);
 })
 
-server.post("/logout", (req, res) => { //delete cookie and redirect to home page 
+server.post("/destination", verifyUser, (req, res) => {//adds destination to our database
+
+})
+
+server.post("/delete", verifyUser, (req,res) => {//check logged in and delete destination 
     
 })
 
-server.post("/destination", (req, res) => {//adds destination to our database
-
-})
-
-server.post("/delete", (req,res) => {//check logged in and delete destination 
-    
-})
-
-server.put("/destination/:id", (req, res) => {
+server.put("/destination/:id", verifyUser, (req, res) => {
     
 })
