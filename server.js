@@ -10,7 +10,7 @@ server.use(cookieParser());
 server.use(express.urlencoded({ extended: true }));
 
 server.listen(3000, () => 
-    console.log(`Server listening on http:localhost:${PORT}`)
+    console.log(`Server listening on http://localhost:${PORT}`)
 );
 
 server.get("/", (req, res) => { //displays all json data
