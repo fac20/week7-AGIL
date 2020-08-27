@@ -7,6 +7,7 @@ const userHandlers = require("./handlers/users");
 const destinationHandlers = require("./handlers/destinations");
 
 server.use(cookieParser());
+server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 server.listen(3000, () => 
@@ -18,7 +19,7 @@ server.get("/signup", (req, res) => { //displays all json data
 })
 
 server.post("/signup", (req, res) => { //call the handler which creates a new user and password
-    console.log("signup handler called");
+    console.log("signup route called");
     userHandlers.signUp(req, res);
 })
 
