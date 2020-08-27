@@ -1,5 +1,5 @@
 const pg = require("pg");
-require("dotenv").config();
+const env = require("dotenv").config();
 
 // const options = {
     connectionString = process.env.DATABASE_URL
