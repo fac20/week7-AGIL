@@ -1,6 +1,8 @@
-<img src="https://user-images.githubusercontent.com/59174800/91480725-4c8b6480-e89b-11ea-90ba-8515995c14fc.gif" align="right" />
-# Holiday Destinations API
-Looking to find your next perfect holiday destination? Then this API is for you
+# Holiday Destinations API  
+<img src="https://user-images.githubusercontent.com/59174800/91482429-f966e100-e89d-11ea-8102-3215563120e3.gif)" align="right" />  
+
+
+Looking to find your next perfect holiday destination? Then this API is for you  
 
 
 ## Table of content :scroll:
