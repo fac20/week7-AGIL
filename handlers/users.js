@@ -9,6 +9,7 @@ const SECRET = process.env.JWT_SECRET;
   
 
 function signUp(req, res, next){
+    console.log("signup handler called");
      // save all inputs in variables
     const username = req.body.username;
     const email = req.body.email;
@@ -57,7 +58,5 @@ function logIn(req, res, next) {
 
         .catch(next);
 }
-
-
 
 module.exports = { signUp, logIn };
