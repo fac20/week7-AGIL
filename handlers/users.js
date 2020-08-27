@@ -10,15 +10,19 @@ const SECRET = process.env.JWT_SECRET;
 
 function signUp(req, res, next){
      // save all inputs in variables
+     console.log(req.body)
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
+    console.log(username)
     // check if user has submitted any invalid values
     // if they have return an error
     if (!(username || email || password)) {
+        console.log(username)
+
         const error = new Error("Invalid input");
         error.status = 400;
-        next(error);
+        // next();
     };
     // if inputs are correct 
         // hash and salt the password
@@ -31,10 +35,13 @@ function signUp(req, res, next){
              .createUser({username, email, password: hash}) //what if the user already exists --> UNIQUE added in init.sql to avoid this
             .then((user) => {
                 const token = jwt.sign({ user: user.id }, SECRET, { expiresIn: "1h" });
+                // res.headers.authorization = 'Bearer ' + token;
+                res.set({
+                    Authorization : 'Bearer ' + token
+                })
                 res.status(200).send({ access_token: token });
-                res.headers.authorization = 'Bearer ' + token;
             })
-            .catch(next)
+            .catch(next())
              )
         .catch(next);
 }

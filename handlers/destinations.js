@@ -9,7 +9,11 @@ const model = require("../model/destination");
 function displayDestinations(req,res,next) {
     model
     .getAllDestinations()  // maybe use innerjoin to also display username (in model)
-    .then(result => res.status(200).send(result))
+    .then(result =>
+        {
+            console.log(result)
+            res.status(200).send(result)
+        })
     .catch(next);
 }
 

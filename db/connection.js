@@ -1,10 +1,10 @@
 const pg = require("pg");
 require("dotenv").config();
 
-// const options = {
-    connectionString = process.env.DATABASE_URL
+const options = {
+    connectionString: process.env.DATABASE_URL
 //     // ssl : {rejectUnauthorized : false}
-// }
+}
 
 // if we are testing (node env is test env - look at package.json's test script (see line 12)  - then use test database)
 if (process.env.NODE_ENV === "test") {
