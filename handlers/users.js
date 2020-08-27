@@ -9,41 +9,38 @@ const SECRET = process.env.JWT_SECRET;
   
 
 function signUp(req, res, next) {
-    console.log("request body", req.body);
-    //  // save all inputs in variables
-    // const username = req.body.username;
-    // const email = req.body.email;
-    // const password = req.body.password;
-    // // check if user has submitted any invalid values
-    // // if they have return an error
-    // if (!(username || email || password)) {
-    //     const error = new Error("Invalid input");
-    //     error.status = 400;
-    //     console.log("new error thrown");
-    //     return next(error);
-    // };
-    // // if inputs are correct 
-    //     // hash and salt the password
-    //     bcrypt
-    //     .genSalt(10)
-    //     .then(salt => bcrypt.hash(password, salt))
-    //     // create a user in the db with the hashed pass
-    //     .then(hash => {
-    //          model
-    //          .createUser({username, email, password: hash}) //what if the user already exists --> UNIQUE added in init.sql to avoid this
-    //         .then((user) => {
-    //             const token = jwt.sign({ user: user.id }, SECRET, { expiresIn: "1h" });
-    //             res.status(200).send({ access_token: token });
-    //         })
-    //         .catch(err => {
-    //             console.log('error is line 38');
-    //             console.log(err);
-    //         });
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //         console.log("error is line 45");
-    //     });
+     // save all inputs in variables
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    // check if user has submitted any invalid values
+    // if they have return an error
+    if (!(username || email || password)) {
+        const error = new Error("Invalid input");
+        error.status = 400;
+        console.log("new error thrown");
+        next(error);
+    };
+    // if inputs are correct 
+        // hash and salt the password
+        bcrypt
+        .genSalt(10)
+        .then(salt => bcrypt.hash(password, salt))
+        // create a user in the db with the hashed pass
+        .then(hash => {
+             model
+             .createUser({username, email, password: hash}) //what if the user already exists --> UNIQUE added in init.sql to avoid this
+            .then((user) => {
+                const token = jwt.sign({ user: user.id }, SECRET, { expiresIn: "1h" });
+                res.status(200).send({ access_token: token });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 }
 
 
