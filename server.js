@@ -1,7 +1,6 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 3000;
-// const templates = require("./templates");
 const server = express();
 const userHandlers = require("./handlers/users");
 const destinationHandlers = require("./handlers/destinations");
@@ -14,8 +13,8 @@ server.listen(3000, () =>
     console.log(`Server listening on http://localhost:${PORT}`)
 );
 
-server.get("/signup", (req, res) => { //displays all json data
-    console.log("signup");
+server.get("/", (req, res) => { //displays all json data
+    destinationHandlers.getAll(req, res);
 })
 
 server.post("/signup", (req, res) => { //call the handler which creates a new user and password
