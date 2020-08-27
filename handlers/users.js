@@ -68,6 +68,3 @@ function logIn(req, res, next) {
 }
 
 module.exports = {signUp, logIn};
-
-
-
