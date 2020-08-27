@@ -32,6 +32,7 @@ function signUp(req, res, next){
             .then((user) => {
                 const token = jwt.sign({ user: user.id }, SECRET, { expiresIn: "1h" });
                 res.status(200).send({ access_token: token });
+                res.headers.authorization = 'Bearer ' + token;
             })
             .catch(next)
              )
@@ -53,14 +54,13 @@ function logIn(req, res, next) {
             // if match - create jwt
             const token = jwt.sign({ user: user.id }, SECRET, { expiresIn: "1h" });
             res.status(200).send({ access_token: token });
+            res.headers.authorization = 'Bearer ' + token
           })
 
         .catch(next);
 }
 
+module.exports = {signUp, logIn};
 
 
 
-
-
-module.exports = { signUp, logIn };

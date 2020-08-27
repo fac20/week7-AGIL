@@ -8,14 +8,16 @@ const model = require("../model/destination");
 
 function displayDestinations(req,res,next) {
     model
-    .allDestinations() //get the right function name  // maybe use innerjoin to also display username (in model)
-    .then(result => res.send(result))
+    .getAllDestinations()  // maybe use innerjoin to also display username (in model)
+    .then(result => res.status(200).send(result))
     .catch(next);
 }
 
 function showDestination(req, res, next) {
     const id= req.params.id;
-    model.
+    model.getDestination(id)
+        .then(result => res.status(200).send(result))
+        .catch(next);
 }
 
 function updateDestination(req, res, next){
@@ -23,7 +25,16 @@ function updateDestination(req, res, next){
     const newDestination = req.body.destination;
     model
         .updateDestination(id, newDestination)
+        .then(res.status(200))
         .catch(next);
 }
 
+function deleteDestination(req, res, next) {
+    model.
+        deleteDestination(id)
+        .then(res.status(200))
+        .catch(next);
+}
+
+module.exports = {displayDestinations, showDestination, updateDestination, deleteDestination};
 
