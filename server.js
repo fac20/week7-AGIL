@@ -1,10 +1,10 @@
 const express = require("express");
-// const cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 3000;
 // const templates = require("./templates");
 const server = express();
 const userHandlers = require("./handlers/users");
-const destinationHandlers = require("./handlers/destination");
+const destinationHandlers = require("./handlers/destinations");
 
 server.use(cookieParser());
 server.use(express.urlencoded());
