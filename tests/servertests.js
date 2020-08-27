@@ -15,7 +15,8 @@ test("check status code is 200 and / take you to home page", t => {
         .expect("Content-Type", "text/plain")
         .end((err, res) => {
             t.error(err);
-            t.equal(res.text.includes('travel'), true);
+            t.equal(res.text.includes('destination'), true);
+            t.end();
         });
 });
 
@@ -32,3 +33,15 @@ test("check status code is 404", t => {
         });
 });
 
+login, signup, post
+
+test("/login", t => {
+    supertest(router)
+        .get("/login")
+        .expect(200)
+        .expect("content-type", "text/html")
+        .end((err, res) => {
+            t.error(err);
+            t.equal(res.body.length, 3);
+        });
+});
