@@ -7,15 +7,16 @@ const userHandlers = require("./handlers/users");
 const destinationHandlers = require("./handlers/destinations");
 
 server.use(cookieParser());
-server.use(express.urlencoded());
+server.use(express.urlencoded({ extended: true }));
 
 server.listen(3000, () => 
-    console.log("Server listening on http:localhost:3000")
+    console.log(`Server listening on http:localhost:${PORT}`)
 );
 
 server.get("/", (req, res) => { //displays all json data
 })
-server.post("/signup", userHandlers.createUser, (req, res) => { //call the handler which creates a new user and password
+
+server.post("/signup", (req, res) => { //call the handler which creates a new user and password
     userHandlers.signUp(req, res)
 })
 
