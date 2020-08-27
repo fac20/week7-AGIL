@@ -1,5 +1,5 @@
 # Holiday Destinations API  
-<img src="https://user-images.githubusercontent.com/59174800/91482429-f966e100-e89d-11ea-8102-3215563120e3.gif)" align="right" />  
+<img src="https://user-images.githubusercontent.com/59174800/91482429-f966e100-e89d-11ea-8102-3215563120e3.gif" align="right" />  
 
 
 Looking to find your next perfect holiday destination? Then this API is for you  
@@ -82,5 +82,6 @@ Please message if you have any questions.
  Terry (Deployment)
 - Jess (Design)
 - Amber (Quality)
-- Khadija (Scrum facilitator)
+- Khadija (Scrum facilitator)  
+
 ![Team spirit-pana](https://user-images.githubusercontent.com/59174800/91482007-3f6f7500-e89d-11ea-912a-20d87afc1052.png)
