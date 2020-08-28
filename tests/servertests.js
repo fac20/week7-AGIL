@@ -1,5 +1,5 @@
 const test = require("tape");
-const router = require("./router")
+const router = require("../router")
 const supertest = require("supertest");
 
 test("Initialise (check tests are running properly", t => {
@@ -33,7 +33,6 @@ test("check status code is 404", t => {
         });
 });
 
-login, signup, post
 
 test("/login", t => {
     supertest(router)
