@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3000;
 const server = express();
 const userHandlers = require("./handlers/users");
 const destinationHandlers = require("./handlers/destinations");
+const verifyUser = require("./middleware/auth");
 
 server.use(cookieParser());
 server.use(express.json()); //we need this to be able to get req.body
@@ -21,24 +22,12 @@ server.post("/signup", (req, res) => { //call the handler which creates a new us
     userHandlers.signUp(req, res);
 })
 
-server.post("/login", (req, res) => { //checks the user exists and logs them in 
+server.post("/login", verifyUser, (req, res) => { //checks the user exists and logs them in 
     userHandlers.logIn(req, res)
 })
 
-server.post("/logout", (req, res) => { //delete cookie and redirect to home page 
-    
-})
-
-server.post("/destination", (req, res) => {//adds destination to our database
-
-})
-
-server.post("/delete", (req,res) => {//check logged in and delete destination 
-    
-})
-
-server.put("/destination/:id", (req, res) => {
-    
+server.post("/newdestination", verifyUser, (req, res) => {//adds destination to our database
+    destinationHandlers.newDestination();
 })
  
 

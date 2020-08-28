@@ -12,7 +12,7 @@ function checkAuth(req, res, next) {
         error.status = 400;
         next(error);
 } else {
-    const token = authHeader.replace("Bearer ", "");
+    const token = userAuth.replace("Bearer ", "");
     try {
         const tokenData = jwt.verify(token, SECRET); // We need to add SECRET to .env
         model
@@ -32,4 +32,4 @@ function checkAuth(req, res, next) {
 }
 };
 
-module.exports = { checkAuth };
+module.exports = checkAuth ;
