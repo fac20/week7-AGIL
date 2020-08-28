@@ -1,5 +1,5 @@
 const test = require("tape");
-const router = require("../router")
+const router = require("./router")
 const supertest = require("supertest");
 
 test("Initialise (check tests are running properly", t => {
