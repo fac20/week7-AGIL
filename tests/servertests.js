@@ -33,7 +33,6 @@ test("check status code is 404", t => {
         });
 });
 
-login, signup, post
 
 test("/login", t => {
     supertest(router)
@@ -45,3 +44,4 @@ test("/login", t => {
             t.equal(res.body.length, 3);
         });
 });
+
