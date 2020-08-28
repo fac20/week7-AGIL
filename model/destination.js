@@ -12,10 +12,10 @@ function getDestination(id) {
         .catch(err => next(err));
 }
 
-function createDestination(destination) {
+function createDestination(user_id, text_content, flight_time, flight_cost) {
     return db
-        .query("INSERT INTO destinations VALUES ($1)", [destination])
-        .catch(err => next(err))
+        .query("INSERT INTO destinations VALUES ($1, $2, $3, $4) RETURNING *", [user_id, text_content, flight_time, flight_cost])
+        .catch(err => next(err));
 };
 
 function updateDestination(id, newDestination) {

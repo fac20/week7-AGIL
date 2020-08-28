@@ -5,11 +5,11 @@ function createUser(user){
     console.log("caling createuser", user);
     // Inserts data into database tables 
     return db
-        .query('INSERT INTO users(username, age, email, password) VALUES ($1, $2, $3, $4)', [
+        .query('INSERT INTO users(username, age, email, password) VALUES ($1, $2, $3, $4) RETURNING *', [
                     user.username,
                     user.age,
                     user.email,
-                    user.password,  
+                     user.password,  
         ])
         // Then retuns the information to be used wherever we like 
         .then(result => result.rows)
@@ -21,6 +21,7 @@ function getUser(email){
     return db
         .query('SELECT * FROM users WHERE email=($1)', [email])
         .then((result) => {
+            console.log("line 24 result", result.rows);
             return result.rows[0];
         })
         .catch(error => next(error))

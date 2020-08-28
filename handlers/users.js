@@ -31,8 +31,7 @@ function signUp(req, res, next) {
         .then(hash => {
             return model
              .createUser({username, age, email, password: hash}) //what if the user already exists --> UNIQUE added in init.sql to avoid this
-            .then((user) => {
-                console.log("line 35 user.js", user);
+             .then((user) => {
                 const token = jwt.sign({ user: user.id }, SECRET, { expiresIn: "1h" });
                 res.status(200).send({ access_token: token });
             })
@@ -53,6 +52,7 @@ function logIn(req, res, next) {
     model
         .getUser(email)      
         .then(dbUser => {
+            console.log("line 56", dbUser);
             user = dbUser;
             return bcrypt.compare(password, dbUser.password);
         })
