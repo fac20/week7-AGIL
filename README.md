@@ -46,6 +46,10 @@ Please message if you have any questions.
 https://agil-holidays.herokuapp.com/
 
 
+## Database schema
+![Screenshot 2020-08-28 at 12 43 55](https://user-images.githubusercontent.com/36554605/91557536-8ce6f300-e92c-11ea-898c-81c53428a94a.png)
+
+
 ## User Stories <img src="https://user-images.githubusercontent.com/59174800/91480280-a7708c00-e89a-11ea-988d-38b6af381e63.gif" align="right" />
 
 ### Core 
