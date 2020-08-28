@@ -26,7 +26,7 @@ CREATE TABLE must_see (
 ); 
 
 INSERT INTO users (username, age, password) VALUES
-    ('JessIsCooool', 23, ''),
+    ('JessIsCooool', 26, ''),
     ('ElTel', 99, '');
 
 INSERT INTO destinations (user_id, text_content, flight_time, flight_cost) VALUES
