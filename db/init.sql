@@ -34,6 +34,7 @@ INSERT INTO users (username, age, email, password) VALUES
 INSERT INTO destinations (user_id, text_content, flight_time, flight_cost) VALUES
     (1, 'Spain', '3', '£100'),
     (2, 'The Moon', '72', '£1,000,000');
+
     
 INSERT INTO must_see (destinations_id, user_id, text_content) VALUES
     (1, 1, 'Magaluf'),

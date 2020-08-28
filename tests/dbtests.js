@@ -14,7 +14,7 @@ test("Can create a new user in usernames table", (t) => {
         .then((result => result.rows))
         .then((usernames) => {
           const latestUser = usernames[usernames.length - 1];
-          t.equal(latestUser.username, "Bob");
+          t.equal(latestUser.username, 'Simba');
           t.end();
         })
         .catch((error) => {
