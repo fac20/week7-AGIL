@@ -32,7 +32,7 @@ INSERT INTO users (username, age, email, password)
 
 INSERT INTO destinations (user_id, text_content, flight_time, flight_cost)
     (1, 'Spain', '03:00:00', '£100'),
-    (2, 'The Moon', '72:00:00', '£1,000,000');
+    (2, 'The Moon', '72:00:00', '£2,000,000,000');
     
 INSERT INTO must_see (destinations_id, user_id, text_content)
     (1, 1, "Magaluf" ),
