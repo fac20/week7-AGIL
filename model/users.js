@@ -2,11 +2,13 @@ const db = require("../db/connection");
 
 // create user - (To then be used as input for a database)
 function createUser(user){
+    console.log("caling createuser", user);
     // Inserts data into database tables 
     return db
-        .query('INSERT INTO users(username, age, password) VALUES ($1, $2, $3)', [
+        .query('INSERT INTO users(username, age, email, password) VALUES ($1, $2, $3, $4)', [
                     user.username,
                     user.age,
+                    user.email,
                     user.password,  
         ])
         // Then retuns the information to be used wherever we like 
@@ -15,10 +17,12 @@ function createUser(user){
 }
 
 //Get user
-function getUser(id){
+function getUser(email){
     return db
-        .query('SELECT * FROM users WHERE id=($1)', [id])
-        .then((result) => result.rows[0])
+        .query('SELECT * FROM users WHERE email=($1)', [email])
+        .then((result) => {
+            return result.rows[0];
+        })
         .catch(error => error)
 };
 

@@ -6,8 +6,6 @@ function getAllDestinations() {
         .catch(err => err);
 }
 
-getAllDestinations();
-
 function getDestination(id) {
     return db
         .query("SELECT * FROM destinations WHERE id=($1)", [id])
@@ -37,5 +35,4 @@ module.exports = {
     createDestination,
     updateDestination,
     deleteDestination
-    
 };
