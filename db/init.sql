@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS users, destinations, must_see CASCADE;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username VARCHAR(30) NOT NULL,
+    username VARCHAR(30) NOT NULL UNIQUE,
     age INTEGER,
     password VARCHAR(255) NOT NULL,
 
@@ -26,9 +26,9 @@ CREATE TABLE must_see (
     text_content TEXT
 ); 
 
-INSERT INTO users (username, age, password)
-    ('JessIsCooool', 23, ''),
-    ('ElTel', 99, '');
+INSERT INTO users (username, age, email, password)
+    ('JessIsCooool', 23, 'Jsic@test.com', '' ),
+    ('ElTel', 99, 'eltl@gmail.com', '');
 
 INSERT INTO destinations (user_id, text_content, flight_time, flight_cost)
     (1, 'Spain', '03:00:00', '£100'),
