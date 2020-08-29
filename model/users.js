@@ -9,11 +9,13 @@ function createUser(user){
                     user.username,
                     user.age,
                     user.email,
-                     user.password,  
+                    user.password,  
         ])
         // Then retuns the information to be used wherever we like 
-        .then(result => result.rows)
-        .catch(error => next(error)) //necessary?
+        .then((result) => {
+            return result.rows[0];
+        })
+        // .catch(error => error) //necessary?
 }
 
 //Get user
@@ -21,11 +23,22 @@ function getUser(email){
     return db
         .query('SELECT * FROM users WHERE email=($1)', [email])
         .then((result) => {
-            console.log("line 24 result", result.rows);
             return result.rows[0];
         })
-        .catch(error => next(error))
+        .catch(error => error)
 };
+
+// ----> We do not want the user to edit their username??
+// //  edit user - username
+// function editUser(user){
+//     // Inserts data into database tables 
+
+//     return db
+//         .query('')
+//         // Then retuns the information to be used wherever we like 
+//         .then(result => result.rows)
+//         .catch(error => error) //necessary?
+// }
 
 
 // delete user
@@ -35,7 +48,7 @@ function deleteUser(user){
     return db
         .query(`DELETE FROM users WHERE id =($1)`, [id])
         // Then retuns the information to be used wherever we like 
-        .catch(error => next(error));
+        // .catch(error => error);
 };
 
 

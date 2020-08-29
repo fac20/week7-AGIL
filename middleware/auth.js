@@ -11,18 +11,20 @@ function checkAuth(req, res, next) {
         const error = new Error("Authorization header required")
         error.status = 400;
         next(error);
-} else {
+    } else {
     const token = userAuth.replace("Bearer ", "");
     try {
         const tokenData = jwt.verify(token, SECRET); // We need to add SECRET to .env
+        console.log("tokenData", tokenData);
         model
         .getUser(tokenData.user)
         .then((user) => {
+            console.log("user.js line 21", user);
             // attach the authenticated user to the request object
-        req.user = user;
+         req.user = user;
         next()
-    })
-    .catch(next);
+        })
+        .catch(next);
     } catch(_) {
          // we don't use the caught error, since we know it came from jwt.verify
         const error = new Error("Unauthorized");
