@@ -9,6 +9,9 @@ function getAllDestinations() {
 function getDestination(id) {
     return db
         .query("SELECT * FROM destinations WHERE id=($1)", [id])
+        .then(result => {
+            return result.rows[0];
+        })
         // .catch(err => next(err));
 }
 

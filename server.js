@@ -29,6 +29,10 @@ server.post("/login", (req, res) => { //checks the user exists and logs them in
 server.post("/newdestination", verifyUser, (req, res) => {//adds destination to our database
     destinationHandlers.newDestination(req, res);
 })
+
+server.get("/destination/:id", (req, res) => {
+    destinationHandlers.getDestinationById(req, res);
+})
  
 
 function handleErrors(error, req, res, next) {
