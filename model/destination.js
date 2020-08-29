@@ -28,9 +28,12 @@ function updateDestination(id, newDestination) {
         // .catch(err => next(err));
 }
 
-function deleteDestination() {
+function deleteDestination(id) {
     return db
-        .query('')
+        .query('DELETE FROM destinations WHERE id=($1) RETURNING *', [id])
+        .then(result => {
+            return result.rows[0];
+        })
 }
 
 module.exports = { 

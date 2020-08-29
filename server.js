@@ -33,6 +33,10 @@ server.post("/newdestination", verifyUser, (req, res) => {//adds destination to 
 server.get("/destination/:id", (req, res) => {
     destinationHandlers.getDestinationById(req, res);
 })
+
+server.delete("/destination/:id", (req, res) => {
+    destinationHandlers.deleteDestination(req, res);
+})
  
 
 function handleErrors(error, req, res, next) {

@@ -29,4 +29,13 @@ function getDestinationById(req, res, next) {
      .catch(error => console.log(error));
 }
 
-module.exports = {getAll, newDestination, getDestinationById};
+function deleteDestination(req, res, next) {
+    const id = req.params.id;
+    model.deleteDestination(id)
+    .then(result => {
+        res.status(200).send(result);
+    })
+    .catch(error => console.log(error));
+}
+
+module.exports = {getAll, newDestination, getDestinationById, deleteDestination};
