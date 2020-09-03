@@ -22,12 +22,20 @@ server.post("/signup", (req, res) => { //call the handler which creates a new us
     userHandlers.signUp(req, res);
 })
 
-server.post("/login", verifyUser, (req, res) => { //checks the user exists and logs them in 
+server.post("/login", (req, res) => { //checks the user exists and logs them in 
     userHandlers.logIn(req, res)
 })
 
 server.post("/newdestination", verifyUser, (req, res) => {//adds destination to our database
-    destinationHandlers.newDestination();
+    destinationHandlers.newDestination(req, res);
+})
+
+server.get("/destination/:id", (req, res) => {
+    destinationHandlers.getDestinationById(req, res);
+})
+
+server.delete("/destination/:id", (req, res) => {
+    destinationHandlers.deleteDestination(req, res);
 })
  
 

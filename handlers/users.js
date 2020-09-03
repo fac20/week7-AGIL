@@ -20,7 +20,7 @@ function signUp(req, res, next) {
         const error = new Error("Invalid input");
         error.status = 400;
         console.log("new error thrown");
-        next(error);
+        // next(error);
     };
     // if inputs are correct 
         // hash and salt the password
@@ -32,7 +32,8 @@ function signUp(req, res, next) {
             return model
              .createUser({username, age, email, password: hash}) //what if the user already exists --> UNIQUE added in init.sql to avoid this
              .then((user) => {
-                const token = jwt.sign({ user: user.id }, SECRET, { expiresIn: "1h" });
+                 console.log("returned user", user);
+                const token = jwt.sign({ user: user.email }, SECRET, { expiresIn: "1h" });
                 res.status(200).send({ access_token: token });
             })
             .catch(err => {
@@ -60,7 +61,7 @@ function logIn(req, res, next) {
             // if pass dont match throw error
             if (!match) throw new Error("Take a hike! Password mismatch!!");
             // if match - create jwt
-            const token = jwt.sign({ user: user.id }, SECRET, { expiresIn: "1h" });
+            const token = jwt.sign({ user: user.email }, SECRET, { expiresIn: "1h" });
             res.status(200).send({ access_token: token });
           })
 
