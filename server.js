@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const PORT = process.env.PORT || 3000 || 0.0.0.0;
+const PORT = process.env.PORT || 3000;
+// const hostname = process.env.HOSTNAME || "0.0.0.0" || "localhost";
 const server = express();
 const userHandlers = require("./handlers/users");
 const destinationHandlers = require("./handlers/destinations");
@@ -10,7 +11,7 @@ server.use(cookieParser());
 server.use(express.json()); //we need this to be able to get req.body
 server.use(express.urlencoded({ extended: true }));
 
-server.listen(3000, () => 
+server.listen(PORT, () => 
     console.log(`Server listening on http://localhost:${PORT}`)
 );
 
