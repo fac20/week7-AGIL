@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 3000;
 // const hostname = process.env.HOSTNAME || "0.0.0.0" || "localhost";
@@ -10,6 +11,7 @@ const verifyUser = require("./middleware/auth");
 server.use(cookieParser());
 server.use(express.json()); //we need this to be able to get req.body
 server.use(express.urlencoded({ extended: true }));
+server.use(cors());
 
 server.listen(PORT, () => 
     console.log(`Server listening on http://localhost:${PORT}`)
